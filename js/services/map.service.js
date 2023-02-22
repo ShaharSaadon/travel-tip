@@ -1,8 +1,16 @@
+// import { mapController } from '../app.controller.js'
+import {storageService} from '../services/async-storage.service.js'
+import {utilService} from '../services/util.service.js'
+import {locService} from '../services/loc.service.js'
+
+
 export const mapService = {
     initMap,
     addMarker,
     panTo
 }
+
+
 
 // Var that is used throughout this Module (not global)
 var gMap
@@ -17,17 +25,37 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
                 center: { lat, lng },
                 zoom: 15
             })
+
+            gMap.addListener('click', (ev) => {
+                console.log('ev', ev)
+                const name = prompt('Place name?', 'Place 1')
+                const lat = ev.latLng.lat()
+                const lng = ev.latLng.lng()
+                console.log('lat=',lat, 'lng=',lng)
+                addMarker(({lat, lng}),name)    
+                // renderPlaces()
+                // renderMarkers()
+              })
+
+
             console.log('Map!', gMap)
         })
 }
 
-function addMarker(loc) {
+function addMarker(loc,name) {
     var marker = new google.maps.Marker({
         position: loc,
         map: gMap,
-        title: 'Hello World!'
+        title: name,
     })
-    return marker
+    const {position,title} = marker
+    let newMarker = {
+        id: utilService.makeId(),
+        position,
+        title,
+    }
+    return locService.save(newMarker)
+    // .then(console.log)
 }
 
 function removeMarker() {
