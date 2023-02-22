@@ -7,8 +7,8 @@ export const locService = {
 }
 
 const LOCATION_KEY = 'locationsDB'
-
 const locs = query()  
+const amazing = 7
 
 
 function getLocs() {
