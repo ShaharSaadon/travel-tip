@@ -36,8 +36,30 @@ function onGetLocs() {
     locService.getLocs()
         .then(locs => {
             console.log('Locations:', locs)
-            document.querySelector('.locs').innerText = JSON.stringify(locs, null, 2)
+            renderLocs(locs)
         })
+}
+
+function renderLocs(locs) {
+    // var strHTMLs = '<ul>'
+    var strHTMLs = locs.map(loc=> {
+        return `<article class="loc">
+        <div>
+            <p>
+            ${loc.title}
+            created at:${loc.createdAt}
+            updated at:${loc.updateAt}
+            </p>
+        </div>
+        
+            <button class="btn" onclick="onDeleteMarker(${loc.id})">Delete</button>
+            <button class="btn" onclick="onPanTo(${loc.location})">Go To</button>
+        
+        </article>`
+    }).join('')
+    // strHTMLs += '</ul>'
+    const elLocList = document.querySelector('.locs-list')
+    elLocList.innerHTML = strHTMLs
 }
 
 function onGetUserPos() {
@@ -52,7 +74,11 @@ function onGetUserPos() {
         })
 }
 
-function onPanTo() {
+function onCopyLoc() {
+
+}
+
+function onPanTo(location) {
     console.log('Panning the Map')
-    mapService.panTo(35.6895, 139.6917)
+    mapService.panTo(location)
 }
