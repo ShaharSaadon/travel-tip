@@ -13,12 +13,8 @@ const locs = query()
 
 
 function getLocs() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(locs)
-        }, 2000)
-    })
-}
+    return query()
+    }
 
 function save(loc) {
         console.log(loc)   

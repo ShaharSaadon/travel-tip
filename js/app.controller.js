@@ -52,7 +52,7 @@ function renderLocs(locs) {
             </p>
         </div>
         
-            <button class="btn" onclick="onDeleteMarker(${loc.id})">Delete</button>
+            <button class="btn" onclick="onDeleteMarker('${loc.id}')">Delete</button>
             <button class="btn" onclick="onPanTo(${loc.location})">Go To</button>
         
         </article>`
@@ -75,18 +75,13 @@ function onGetUserPos() {
 }
 
 function onCopyLoc() {
-
 }
 
 function onPanTo(location) {
     console.log('Panning the Map')
-<<<<<<< HEAD
-    mapService.panTo(35.6895, 139.6917)
+    mapService.panTo(location)
 }
 
 function onDeleteMarker(markerId){
- return mapService.deleteMarker(markerId)
-=======
-    mapService.panTo(location)
->>>>>>> 1b3f5bcfa0a9ea926e94e7d7d78330bab1722df4
+    return mapService.deleteMarker(markerId)
 }
