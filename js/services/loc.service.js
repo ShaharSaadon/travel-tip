@@ -40,11 +40,6 @@ function get(locId) {
     return storageService.get(LOCATION_KEY, locId)
 }
 
-function remove(locId) {
-    return storageService.remove(LOCATION_KEY, locId)
-    // return axios.remove(url, petId)
-}
-
 function createLoc(id,title,location){
    let loc = {
         id,

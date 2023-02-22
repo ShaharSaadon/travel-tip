@@ -60,7 +60,10 @@ function deleteMarker(markerId) {
 return storageService.remove(locService.LOCATION_KEY, markerId)
 }
 
-function panTo(lat, lng) {
+function panTo(location) {
+    const {lat, lng} = location
+    console.log('location=',location)
+    console.log('lat=',lat, 'lng',lng)
     var laLatLng = new google.maps.LatLng(lat, lng)
     gMap.panTo(laLatLng)
 }
