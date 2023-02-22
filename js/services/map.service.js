@@ -1,14 +1,14 @@
 // import { mapController } from '../app.controller.js'
 import { utilService } from '../services/util.service.js'
 import { locService } from '../services/loc.service.js'
-
+import {storageService} from '../services/async-storage.service.js'
 
 export const mapService = {
     initMap,
     addMarker,
+    deleteMarker,
     panTo
 }
-
 
 
 // Var that is used throughout this Module (not global)
@@ -56,8 +56,8 @@ function addMarker(loc, name) {
     // .then(console.log)
 }
 
-function removeMarker() {
-
+function deleteMarker(markerId) {
+return storageService.remove(locService.LOCATION_KEY, markerId)
 }
 
 function panTo(lat, lng) {

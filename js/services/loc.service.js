@@ -1,14 +1,15 @@
+const LOCATION_KEY = 'locationsDB'
+
 import {storageService} from './async-storage.service.js'
 import {mapService} from './map.service.js'
 export const locService = {
     getLocs,
     createLoc,
     save,
+    LOCATION_KEY,
 }
 
-const LOCATION_KEY = 'locationsDB'
 const locs = query()  
-const amazing = 8
 
 
 function getLocs() {

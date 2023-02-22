@@ -1,11 +1,11 @@
 import { locService } from './services/loc.service.js'
 import { mapService } from './services/map.service.js'
-
 export const appController = {
     onAddMarker,
 }
 
 window.onload = onInit
+window.onDeleteMarker = onDeleteMarker
 window.onAddMarker = onAddMarker
 window.onPanTo = onPanTo
 window.onGetLocs = onGetLocs
@@ -55,4 +55,8 @@ function onGetUserPos() {
 function onPanTo() {
     console.log('Panning the Map')
     mapService.panTo(35.6895, 139.6917)
+}
+
+function onDeleteMarker(markerId){
+ return mapService.deleteMarker(markerId)
 }
