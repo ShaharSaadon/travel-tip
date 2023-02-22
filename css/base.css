@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(143, 179, 167);
+    padding: 0.5em;
+    padding-inline: 1em;
+    margin-block-end: 1em;
+    color: beige;
+    border-radius: 10px;
+}
+
+.curr-location-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: cornflowerblue;
+    color: beige;
+    font-size: 1.3em;
+    padding: 0.5em;
+    padding-inline: 1em;
+    margin-block-end: 1em;
+    border-radius: 10px;
+    
+}
+
+/* .main-layout { */
+    /* display: grid; */
+    /* grid-template-columns: repeat(2, 1fr);
+} */
