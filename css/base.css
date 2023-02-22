@@ -28,6 +28,25 @@
     
 }
 
+.locs-list {
+    background-color: rgb(202, 135, 111);
+    padding: 3em;
+    border-radius: 10px;
+}
+
+.loc {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: max-content;
+    height: 5em;
+    gap: 2em;
+    margin-block-end: 2em;
+    padding: 1em;
+    border-radius: 10px;
+    background-color: burlywood;
+}
+
 /* .main-layout { */
     /* display: grid; */
     /* grid-template-columns: repeat(2, 1fr);
