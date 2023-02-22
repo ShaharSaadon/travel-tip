@@ -1,6 +1,10 @@
+import {storageService} from './async-storage.service.js'
+
 export const locService = {
     getLocs
 }
+
+const STORAGE_KEY = 'locationsDB'
 
 
 const locs = [
