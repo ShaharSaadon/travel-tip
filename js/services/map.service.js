@@ -49,11 +49,10 @@ function addMarker(loc,name) {
         title: name,
     })
     const {position,title} = marker
-    let newMarker = {
-        id: utilService.makeId(),
-        position,
-        title,
-    }
+    const id=utilService.makeId()
+    locService.createLoc(id,title,position)
+    .then(locService.save)
+
     return locService.save(newMarker)
     // .then(console.log)
 }
