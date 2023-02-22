@@ -2,12 +2,13 @@ import {storageService} from './async-storage.service.js'
 import {mapService} from './map.service.js'
 export const locService = {
     getLocs,
+    createLoc,
     save,
 }
 
 const LOCATION_KEY = 'locationsDB'
 
-const locs = query  
+const locs = query()  
 
 
 function getLocs() {
@@ -38,26 +39,26 @@ function query() {
         })
 }
 
-function get(petId) {
-    return storageService.get(PET_KEY, petId)
+function get(locId) {
+    return storageService.get(LOCATION_KEY, locId)
 }
 
-// function remove(petId) {
-//     return storageService.remove(PET_KEY, petId)
-//     // return axios.remove(url, petId)
-// }
+function remove(locId) {
+    return storageService.remove(LOCATION_KEY, locId)
+    // return axios.remove(url, petId)
+}
 
-// function createLoc(id,title,location){
-//    let loc = {
-//         id,
-//         title,
-//         location,
-//         createdAt: Date.now(),
-//         updateAt: Date.now(),
+function createLoc(id,title,location){
+   let loc = {
+        id,
+        title,
+        location,
+        createdAt: Date.now(),
+        updateAt: Date.now(),
         
-//     } 
-//     return loc
-// }
+    } 
+     return Promise.resolve(loc)
+}
 
 // function _createPets() {
 //     let pets = utilService.loadFromStorage(PET_KEY)
